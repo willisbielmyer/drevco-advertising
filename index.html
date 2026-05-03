@@ -376,9 +376,78 @@
             gap: 12px;
         }
 
+        /* Contact form */
+        .contact-form {
+            max-width: 580px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .form-group label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.3px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+            outline: none;
+            width: 100%;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            font-family: inherit;
+            margin-top: 6px;
+        }
+
+        .form-submit:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
         /* Responsive */
         @media (max-width: 780px) {
             .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .form-row { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 600px) {
@@ -396,7 +465,7 @@
 <!-- Nav -->
 <nav>
     <div class="logo">Drevco<span>.</span></div>
-    <a href="mailto:willbielmyer@gmail.com" class="nav-cta">Get Started</a>
+    <a href="#contact" class="nav-cta">Get Started</a>
 </nav>
 
 <!-- Hero -->
@@ -405,7 +474,7 @@
     <h1>More customers.<br><span>Flat rate.</span> No risk.</h1>
     <p>We build high-converting Google and Meta ad campaigns for local businesses — 3 ad variations, $150 flat. Don't love them, don't pay.</p>
     <div class="hero-cta">
-        <a href="mailto:willbielmyer@gmail.com" class="btn-primary">Get My Ads &rarr;</a>
+        <a href="#contact" class="btn-primary">Get My Ads &rarr;</a>
         <a href="#how-it-works" class="btn-secondary">See How It Works</a>
     </div>
 </section>
@@ -456,7 +525,7 @@
                 <li><span class="check">&#10003;</span> Full launch guidance</li>
                 <li><span class="check">&#10003;</span> 100% refund if you're not satisfied</li>
             </ul>
-            <a href="mailto:willbielmyer@gmail.com" class="btn-primary" style="width:100%;text-align:center;">Get Started Today &rarr;</a>
+            <a href="#contact" class="btn-primary" style="width:100%;text-align:center;">Get Started Today &rarr;</a>
             <p class="guarantee">No contracts. No commitments. Just results.</p>
         </div>
     </div>
@@ -489,12 +558,32 @@
     </div>
 </section>
 
-<!-- CTA -->
-<div class="cta-section">
+<!-- Contact -->
+<div class="cta-section" id="contact">
     <div class="cta-inner">
         <h2>Ready to get more customers?</h2>
-        <p>Reach out today. We'll have your ads ready in days — or your money back.</p>
-        <a href="mailto:willbielmyer@gmail.com" class="btn-primary">Email Us Now &rarr;</a>
+        <p>Fill out the form below and we'll be in touch within 24 hours.</p>
+        <form class="contact-form" action="https://formspree.io/f/mdabadae" method="POST">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Smith" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="business">Business Name</label>
+                <input type="text" id="business" name="business" placeholder="Smith Roofing LLC">
+            </div>
+            <div class="form-group">
+                <label for="message">Tell us about your business</label>
+                <textarea id="message" name="message" placeholder="What do you sell, who are your customers, and what are your goals?"></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send My Info &rarr;</button>
+        </form>
     </div>
 </div>
 
