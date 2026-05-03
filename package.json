@@ -1,0 +1,9 @@
+{
+  "name": "drevco-advertising",
+  "version": "1.0.0",
+  "description": "Drevco Advertising landing page",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'No build step required'"
+  }
+}

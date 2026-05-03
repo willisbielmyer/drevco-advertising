@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drevco Advertising — More Customers. Flat Rate. No Risk.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #0a0a0a;
+            --bg-card: #141414;
+            --accent: #ff6b35;
+            --accent-hover: #ff8552;
+            --text: #f5f5f5;
+            --text-muted: #888;
+            --border: #222;
+            --max-w: 1100px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Nav */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 40px;
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span { color: var(--accent); }
+
+        .nav-cta {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 10px 22px;
+            background: var(--accent);
+            border-radius: 8px;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .nav-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 100px 40px 80px;
+            max-width: var(--max-w);
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.12);
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 28px;
+            border: 1px solid rgba(255, 107, 53, 0.25);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span { color: var(--accent); }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 540px;
+            margin: 0 auto 44px;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: background 0.2s, transform 0.1s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid var(--border);
+            transition: border-color 0.2s;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover { border-color: #444; }
+
+        /* Proof strip */
+        .proof-strip {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 18px 40px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            letter-spacing: 0.8px;
+        }
+
+        /* Section base */
+        .section {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 88px 40px;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 14px;
+        }
+
+        .section-sub {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 480px;
+            margin-bottom: 56px;
+        }
+
+        /* How it works */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 20px;
+        }
+
+        .step {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 32px;
+            transition: border-color 0.2s;
+        }
+
+        .step:hover { border-color: #2a2a2a; }
+
+        .step-num {
+            width: 38px;
+            height: 38px;
+            background: rgba(255, 107, 53, 0.12);
+            border: 1px solid rgba(255, 107, 53, 0.25);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 18px;
+        }
+
+        .step h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .step p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.65; }
+
+        /* Pricing */
+        .pricing-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 107, 53, 0.4);
+            border-radius: 18px;
+            padding: 52px;
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .pricing-badge {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.12);
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 107, 53, 0.25);
+        }
+
+        .price {
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: -3px;
+            margin-bottom: 6px;
+        }
+
+        .price-note {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            margin-bottom: 36px;
+        }
+
+        .features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .features li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .features li:last-child { border-bottom: none; }
+
+        .check { color: var(--accent); font-weight: 700; }
+
+        .guarantee {
+            margin-top: 18px;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            line-height: 1.15;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .projects {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            transition: border-color 0.2s;
+        }
+
+        .project-card:hover { border-color: #2a2a2a; }
+
+        .project-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 0.84rem;
+            margin: 0;
+            line-height: 1.55;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cta-inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 88px 40px;
+            text-align: center;
+        }
+
+        .cta-inner h2 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 16px;
+        }
+
+        .cta-inner p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        footer {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 32px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 780px) {
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+
+        @media (max-width: 600px) {
+            nav { padding: 20px 24px; }
+            .hero { padding: 60px 24px 60px; }
+            .section { padding: 64px 24px; }
+            .pricing-card { padding: 32px 24px; }
+            .cta-inner { padding: 64px 24px; }
+            footer { padding: 28px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+    <div class="logo">Drevco<span>.</span></div>
+    <a href="mailto:willbielmyer@gmail.com" class="nav-cta">Get Started</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-badge">Google &amp; Meta Advertising</div>
+    <h1>More customers.<br><span>Flat rate.</span> No risk.</h1>
+    <p>We build high-converting Google and Meta ad campaigns for local businesses — 3 ad variations, $150 flat. Don't love them, don't pay.</p>
+    <div class="hero-cta">
+        <a href="mailto:willbielmyer@gmail.com" class="btn-primary">Get My Ads &rarr;</a>
+        <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+    </div>
+</section>
+
+<!-- Proof strip -->
+<div class="proof-strip">
+    Serving local service businesses &nbsp;&middot;&nbsp; Google Ads &nbsp;&middot;&nbsp; Meta Ads &nbsp;&middot;&nbsp; Money-back guarantee
+</div>
+
+<!-- How it works -->
+<section class="section" id="how-it-works">
+    <div class="section-label">Process</div>
+    <h2>Simple. Fast. Effective.</h2>
+    <p class="section-sub">From first contact to finished ads in days, not weeks.</p>
+    <div class="steps">
+        <div class="step">
+            <div class="step-num">01</div>
+            <h3>Tell us about your business</h3>
+            <p>A quick 10-minute call or email is all we need to understand your goals, target customers, and what makes your offer worth advertising.</p>
+        </div>
+        <div class="step">
+            <div class="step-num">02</div>
+            <h3>We build your ads</h3>
+            <p>Using proprietary tools, we craft 3 high-converting ad variations — copy, targeting recommendations, and creative direction — built around your specific business.</p>
+        </div>
+        <div class="step">
+            <div class="step-num">03</div>
+            <h3>Launch and get leads</h3>
+            <p>Take the ads live on Google, Meta, or both. We walk you through every step of the launch so nothing gets missed.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section class="section" id="pricing">
+    <div class="section-label">Pricing</div>
+    <h2>One price. No surprises.</h2>
+    <p class="section-sub">No monthly retainers. No hidden fees. Pay once, get great ads.</p>
+    <div class="pricing-wrapper">
+        <div class="pricing-card">
+            <div class="pricing-badge">Flat Rate Offer</div>
+            <div class="price">$150</div>
+            <div class="price-note">one-time &nbsp;&middot;&nbsp; money-back guarantee</div>
+            <ul class="features">
+                <li><span class="check">&#10003;</span> 3 ad variations (copy + creative direction)</li>
+                <li><span class="check">&#10003;</span> Targeting recommendations included</li>
+                <li><span class="check">&#10003;</span> Google Ads, Meta Ads, or both</li>
+                <li><span class="check">&#10003;</span> Full launch guidance</li>
+                <li><span class="check">&#10003;</span> 100% refund if you're not satisfied</li>
+            </ul>
+            <a href="mailto:willbielmyer@gmail.com" class="btn-primary" style="width:100%;text-align:center;">Get Started Today &rarr;</a>
+            <p class="guarantee">No contracts. No commitments. Just results.</p>
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+<section class="section" id="about">
+    <div class="about-grid">
+        <div class="about-text">
+            <div class="section-label">About</div>
+            <h2>Built by someone who ships real products.</h2>
+            <p>Drevco Advertising was founded by Will — a developer and builder who understands that good marketing has to actually work for real people, not just look good on a slide deck.</p>
+            <p>Beyond advertising, we build digital products that solve real problems. That same obsession with results over fluff drives everything we do for our clients.</p>
+            <p>We use proprietary ad creation tools to move fast without sacrificing quality — better ads, faster turnaround, and lower cost for you.</p>
+        </div>
+        <div class="projects">
+            <div class="project-card">
+                <h4>AI Fitness Platform</h4>
+                <p>Custom AI-powered workout generation tailored to a person's individual needs, goals, and fitness level.</p>
+            </div>
+            <div class="project-card">
+                <h4>Parent Medical Triage App</h4>
+                <p>A medical guidance app helping first-time parents identify what's wrong with their child in the middle of the night.</p>
+            </div>
+            <div class="project-card">
+                <h4>Proprietary Ad Tools</h4>
+                <p>Custom-built advertising software that streamlines ad production for faster delivery and stronger results.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+    <div class="cta-inner">
+        <h2>Ready to get more customers?</h2>
+        <p>Reach out today. We'll have your ads ready in days — or your money back.</p>
+        <a href="mailto:willbielmyer@gmail.com" class="btn-primary">Email Us Now &rarr;</a>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="logo">Drevco<span style="color:#ff6b35">.</span></div>
+    <div>&copy; 2026 Drevco Advertising &nbsp;&middot;&nbsp; willbielmyer@gmail.com</div>
+</footer>
+
+</body>
+</html>
